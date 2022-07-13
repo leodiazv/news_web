@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %} Crear noticia {% endblock %}
+
+{% block content %} 
+
+<div class="card">
+    <div class="card-header">
+        Crear noticia
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Datos de la noticia</h4>
+        {% include 'news/form.html' %}
+    </div>
+    
+</div>
+
+{% endblock %}

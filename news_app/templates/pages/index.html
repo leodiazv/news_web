@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %} Noticias del dia {% endblock %}
+
+{% block content %} 
+
+<div class="card">
+    <div class="card-header">
+        Noticias del dia 
+        
+    </div>
+    <a name="" id="" class="btn btn-outline-success" href="{% url 'create_new' %}" role="button">Crear Noticia</a>
+    <div class="card-body">
+        <h4 class="card-title">Noticias</h4>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>Titulo de noticia</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                {% for elem in news %}
+                    <tr>
+                        <td>
+                            <img src="{{ elem.image.url }}" alt="" height="100" />
+                        </td>
+                        <td>{{ elem.title }}</td>
+                        <td>
+                            <a name="" id="" class="btn btn-info" href="{% url 'edit_new' elem.id %}" role="button">Editar</a>
+                            | 
+                            <a name="" id="" class="btn btn-danger" href="{% url 'delete_news' elem.id %}" role="button">Borrar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}
