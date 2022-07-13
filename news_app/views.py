@@ -30,3 +30,8 @@ def delete_news(request, id):
     news = News.objects.get(id=id)
     news.delete()
     return redirect('home')
+
+def news_detail(request, id):
+    news = News.objects.get(id=id)
+
+    return render(request, 'news/news_detail.html', {'news': news})
