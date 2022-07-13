@@ -11,14 +11,14 @@
             {% endif %}
 
             {% if not elem.field.widget.input_type %}
-            
             <div class="mb-3">
                 <label for="" class="form-label"></label>
                 <textarea 
                     class="form-control" 
                     name="{{ elem.name }}" 
                     id="" 
-                    rows="10">
+                    rows="10"
+                    >{{elem.value | default:'' }}
                 </textarea>
             </div>
 
