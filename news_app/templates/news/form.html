@@ -9,15 +9,32 @@
             <br/>
             <img src="{{MEDIA_URL}}/images/{{elem.value}}" width="200" alt="">
             {% endif %}
+
+            {% if not elem.field.widget.input_type %}
+            
+            <div class="mb-3">
+                <label for="" class="form-label"></label>
+                <textarea 
+                    class="form-control" 
+                    name="{{ elem.name }}" 
+                    id="" 
+                    rows="10">
+                </textarea>
+            </div>
+
+            {% else %}
             <input 
-                type="{{ elem.field.widget.input_type }}"
-                class="form-control" 
-                name="{{ elem.name }}" 
-                id="" 
-                aria-describedby="helpId" 
-                placeholder="{{ elem.label }}"
-                value="{{elem.value | default:'' }}"
+            type="{{ elem.field.widget.input_type }}"
+            class="form-control" 
+            name="{{ elem.name }}" 
+            id="" 
+            aria-describedby="helpId" 
+            placeholder="{{ elem.label }}"
+            value="{{elem.value | default:'' }}"
             />
+            {% endif %}
+            {{elem.field.widget.input_type}}
+            
         </div>
         <div class="clo-12 help-text"> {{ elem.errors }}</div>
 
